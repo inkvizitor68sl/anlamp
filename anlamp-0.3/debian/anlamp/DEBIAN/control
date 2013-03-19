@@ -1,0 +1,10 @@
+Package: anlamp
+Version: 0.3
+Architecture: all
+Maintainer: Zhivotnev Vladislav <inkvizitor68sl@yandex-team.ru>
+Installed-Size: 26
+Depends: bash
+Section: misc
+Priority: extra
+Homepage: https://debian.pro/autonlamp
+Description: Auto Nginx+LAMP package

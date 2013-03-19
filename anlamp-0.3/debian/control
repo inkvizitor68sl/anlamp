@@ -1,0 +1,15 @@
+Source: anlamp
+Section: misc
+Priority: extra
+Maintainer: Zhivotnev Vladislav <inkvizitor68sl@yandex-team.ru>
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.9.1
+Homepage: https://debian.pro/autonlamp
+Vcs-Git: https://github.com/inkvizitor68sl/anlamp
+
+Package: anlamp
+Architecture: all
+Depends: bash
+Description: Auto Nginx+LAMP package
+
+
