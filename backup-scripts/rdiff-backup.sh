@@ -2,12 +2,11 @@
 
 set_vars () {
 ### There are we can configure some options. By default you should do nothing there, until you know what to do ;)
-
-# which dir should we backup. To be universal script we are backuping / (all files on server).
+# which dir should we backup. To be universal script we are backuping / (all files on server, except excluded at exclude-list).
 files_to_backup=/
 
 # mysql databases list
-db_list=$(chroot ${chroot_dest}/ /usr/bin/mysql -e 'show databases;' | egrep -v '("+--"|Database|mysql|information_schema|performance_schema)')
+db_list=$(/usr/bin/mysql -e 'show databases;' | egrep -v '("+--"|Database|information_schema|performance_schema)')
 
 # backup date/time - will figure at mysqldumps name.
 backupdate=$(date +%Y%m%d-%H%M)
@@ -40,8 +39,9 @@ for i in $db_list; do mysqldump $i > ${backup_dest_mysqldumps}/"${i}-${backupdat
 # gzipping existing dumps:
 for i in `ls ${backup_dest_mysqldumps}*.sql`; do gzip $i; done
 
-# removing backups older, than 5 days
+# removing backups older, than ${keep_mysql_dumps}
 find ${backup_dest_mysqldumps} -ctime  +${keep_mysql_dumps} -exec rm -f {} \;  -print 
+
 }
 
 set_vars
