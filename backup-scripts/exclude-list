@@ -1,0 +1,8 @@
+**/dev/**
+**/proc/**
+**/sys/**
+**/var/log/**.gz
+**/var/log/**.1
+**/var/log/**.log
+**/backup/**
+**/chroot/**
